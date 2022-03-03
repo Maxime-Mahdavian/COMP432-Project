@@ -17,7 +17,7 @@ data_dir = 'dataset'
 
 # Some hyperparameter and objective function
 batch_size = 200
-epoch = 50
+epoch = 5
 max_lr = 0.001
 grad_clip = 0.1
 weight_decay = 1e-4
