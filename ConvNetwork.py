@@ -1,10 +1,13 @@
 import torch
 import torch.nn as nn
+import timeit
+
 
 # Get the accuracy
 def accuracy(output, label):
     _, pred = torch.max(output, dim=1)
     return torch.tensor(torch.sum(pred == label).item() / len(pred))
+
 
 # Base function for the ImageClassification. It handles all the steps throughout running the model
 # I am willing to change how it's implemented, but that's how I found how to do it, so I just went with it
@@ -29,9 +32,11 @@ class ImageClassification(nn.Module):
         epoch_accuracy = torch.stack(batch_accuracy).mean()
         return {'loss': epoch_loss.item(), 'acc': epoch_accuracy.item()}
 
-    def epoch_end(self, epoch, result):
+    def epoch_end(self, epoch, result, time, file):
         print(f"Epoch [{epoch}], last_lr: {result['lrs'][-1]:.5f}, train_loss: {result['test_loss']:.4f}, "
-              f"val_loss: {result['loss']:.4f}, acc: {result['acc']:.4f}")
+              f"test_loss: {result['loss']:.4f}, acc: {result['acc']:.4f}, Epoch_time: {time}")
+        file.write(f"Epoch [{epoch}], last_lr: {result['lrs'][-1]:.5f}, train_loss: {result['test_loss']:.4f}, "
+                   f"test_loss: {result['loss']:.4f}, acc: {result['acc']:.4f}, Epoch_time: {time}\n")
 
 
 # This is an implementation of the Resnet9 neural network. not sure if it's good
@@ -59,10 +64,14 @@ class ConvNetwork(ImageClassification):
 
 
 # Create a layer of the convolutional layer
-def conv_block(in_channels, out_channels, pool=False):
-    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),
-              nn.BatchNorm2d(out_channels),
-              nn.ReLU(inplace=True)]
+def conv_block(in_channels, out_channels, pool=False, normalize=True):
+    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1)]
+
+    if normalize:
+        layers.append(nn.BatchNorm2d(out_channels))
+
+    layers.append(nn.ReLU(inplace=True))
+
     if pool:
         layers.append(nn.MaxPool2d(2))
     return nn.Sequential(*layers)
@@ -80,8 +89,8 @@ def get_learning_rate(optimizer):
         return param['lr']
 
 
-def training_step(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, grad_clip=None,
-                  opt_func=torch.optim.SGD):
+def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, grad_clip=None,
+          opt_func=torch.optim.SGD, file=None):
     torch.cuda.empty_cache()
     history = []
 
@@ -89,7 +98,10 @@ def training_step(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_
     scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr, epochs=epochs,
                                                     steps_per_epoch=len(trn_dataloader))
 
+    file.write(f'max_lr: {max_lr}, weight_decay: {weight_decay}, grad_clip: {grad_clip}, optimizer: {opt_func}\n')
+    file.write('----------------------------------------------------------------------------------------------\n\n')
     for epoch in range(epochs):
+        start = timeit.default_timer()
         model.train()
         trn_loss = []
         lr_list = []
@@ -111,6 +123,9 @@ def training_step(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_
         result = evaluate(model, tst_dataloader)
         result['test_loss'] = torch.stack(trn_loss).mean().item()
         result['lrs'] = lr_list
-        model.epoch_end(epoch, result)
+        end = timeit.default_timer() - start
+        model.epoch_end(epoch, result, end, file)
         history.append(result)
+        if result['acc'] >= 0.65:
+            break
     return history

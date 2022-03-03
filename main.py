@@ -10,6 +10,8 @@ import torchvision.transforms as tt
 from torch.utils.data import random_split
 from torchvision.utils import make_grid
 import matplotlib.pyplot as plt
+import timeit
+import datetime
 import device_function
 import ConvNetwork as convnet
 
@@ -17,12 +19,13 @@ data_dir = 'dataset'
 
 # Some hyperparameter and objective function
 batch_size = 200
-epoch = 5
+epoch = 50
 max_lr = 0.001
 grad_clip = 0.1
 weight_decay = 1e-4
 obj_func = torch.optim.Adam
 
+file = open('result.txt', 'a')
 
 # Show part of a batch
 def show_batch(dataloader):
@@ -80,12 +83,18 @@ test_dataloader = device_function.DeviceDataloader(test_dataloader, device)
 # Create the model ConvNetwork and put it on the device
 model = device_function.to_device(convnet.ConvNetwork(3, 7), device)
 
+
 # History is just to get the history of the loss and accuracy, mostly to see how the model
 # evolves
 history = [convnet.evaluate(model, test_dataloader)]
+#
+#
+start = timeit.default_timer()
+# # Training step is the main training function
+history += convnet.cycle(epoch, max_lr, model, train_dataloader, test_dataloader,
+                         grad_clip=grad_clip, weight_decay=weight_decay, opt_func=obj_func, file=file)
 
-# Training step is the main training function
-history += convnet.training_step(epoch, max_lr, model, train_dataloader, test_dataloader,
-                                 grad_clip=grad_clip, weight_decay=weight_decay, opt_func=obj_func)
-
+duration = timeit.default_timer() - start
 plot_accuracy(history)
+print(datetime.timedelta(seconds=duration))
+
