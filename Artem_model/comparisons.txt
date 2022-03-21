@@ -1,0 +1,393 @@
+[Data Augmentation + DropOut + Batch Normalization + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-16 16:49:53.445995: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-16 16:49:53.446331: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-16 16:49:53.448191: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688  
+
+ dropout (Dropout)           (None, 1, 1, 512)         0
+
+ flatten (Flatten)           (None, 512)               0
+
+ batch_normalization (BatchN  (None, 512)              2048
+ ormalization)
+
+ dense (Dense)               (None, 32)                16416
+
+ batch_normalization_1 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation (Activation)     (None, 32)                0
+
+ dropout_1 (Dropout)         (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ batch_normalization_2 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dropout_2 (Dropout)         (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ batch_normalization_3 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,735,879
+Trainable params: 7,099,399
+Non-trainable params: 7,636,480
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 200s 553ms/step - loss: 1.9130 - accuracy: 0.8552 - precision: 0.2675 - recall: 0.0080 - val_loss: 1.8591 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 2/5
+359/359 [==============================] - 208s 580ms/step - loss: 1.8004 - accuracy: 0.8576 - precision: 0.5349 - recall: 0.0233 - val_loss: 1.8060 - val_accuracy: 0.8572 - val_precision: 1.0000 - val_recall: 3.4837e-04
+Epoch 3/5
+359/359 [==============================] - 199s 554ms/step - loss: 1.7327 - accuracy: 0.8600 - precision: 0.6040 - recall: 0.0573 - val_loss: 1.6802 - val_accuracy: 0.8634 - val_precision: 0.7768 - val_recall: 0.0618
+Epoch 4/5
+359/359 [==============================] - 203s 566ms/step - loss: 1.6809 - accuracy: 0.8622 - precision: 0.6336 - recall: 0.0848 - val_loss: 1.6462 - val_accuracy: 0.8631 - val_precision: 0.7975 - val_recall: 0.0556
+Epoch 5/5
+359/359 [==============================] - 211s 589ms/step - loss: 1.6437 - accuracy: 0.8642 - precision: 0.6524 - recall: 0.1063 - val_loss: 1.6275 - val_accuracy: 0.8674 - val_precision: 0.6705 - val_recall: 0.1414
+
+[DropOut + Batch Normalization + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-20 02:07:47.944235: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-20 02:07:47.944944: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-20 02:07:47.948495: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688  
+
+ dropout (Dropout)           (None, 1, 1, 512)         0
+
+ flatten (Flatten)           (None, 512)               0
+
+ batch_normalization (BatchN  (None, 512)              2048      
+ ormalization)
+
+ dense (Dense)               (None, 32)                16416
+
+ batch_normalization_1 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation (Activation)     (None, 32)                0
+
+ dropout_1 (Dropout)         (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ batch_normalization_2 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dropout_2 (Dropout)         (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ batch_normalization_3 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,735,879
+Trainable params: 7,099,399
+Non-trainable params: 7,636,480
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 186s 512ms/step - loss: 1.9209 - accuracy: 0.8555 - precision: 0.3120 - recall: 0.0094 - val_loss: 1.8293 - val_accuracy: 0.8569 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 2/5
+359/359 [==============================] - 180s 502ms/step - loss: 1.6704 - accuracy: 0.8649 - precision: 0.7280 - recall: 0.0866 - val_loss: 1.5801 - val_accuracy: 0.8681 - val_precision: 0.8321 - val_recall: 0.0958
+Epoch 3/5
+359/359 [==============================] - 179s 498ms/step - loss: 1.5342 - accuracy: 0.8735 - precision: 0.7632 - recall: 0.1660 - val_loss: 1.5070 - val_accuracy: 0.8761 - val_precision: 0.8066 - val_recall: 0.1744
+Epoch 4/5
+359/359 [==============================] - 180s 501ms/step - loss: 1.4826 - accuracy: 0.8764 - precision: 0.7744 - recall: 0.1898 - val_loss: 1.4401 - val_accuracy: 0.8782 - val_precision: 0.7757 - val_recall: 0.2073
+Epoch 5/5
+359/359 [==============================] - 186s 517ms/step - loss: 1.4338 - accuracy: 0.8793 - precision: 0.7784 - recall: 0.2166 - val_loss: 1.4283 - val_accuracy: 0.8781 - val_precision: 0.7102 - val_recall: 0.2484
+
+[Batch Normalization + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-20 02:23:56.857786: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-20 02:23:56.857992: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-20 02:23:56.858477: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688
+
+ flatten (Flatten)           (None, 512)               0
+
+ batch_normalization (BatchN  (None, 512)              2048
+ ormalization)
+
+ dense (Dense)               (None, 32)                16416
+
+ batch_normalization_1 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ batch_normalization_2 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ batch_normalization_3 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,735,879
+Trainable params: 7,099,399
+Non-trainable params: 7,636,480
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 181s 503ms/step - loss: 1.5525 - accuracy: 0.8700 - precision: 0.7051 - recall: 0.1549 - val_loss: 1.7021 - val_accuracy: 0.8569 - val_precision: 0.4987 - val_recall: 0.2916
+Epoch 2/5
+359/359 [==============================] - 182s 506ms/step - loss: 1.3046 - accuracy: 0.8822 - precision: 0.7201 - recall: 0.2874 - val_loss: 1.4111 - val_accuracy: 0.8757 - val_precision: 0.6469 - val_recall: 0.2865
+Epoch 3/5
+359/359 [==============================] - 183s 511ms/step - loss: 1.2327 - accuracy: 0.8872 - precision: 0.7231 - recall: 0.3410 - val_loss: 1.3865 - val_accuracy: 0.8782 - val_precision: 0.6323 - val_recall: 0.3529
+Epoch 4/5
+359/359 [==============================] - 187s 520ms/step - loss: 1.2060 - accuracy: 0.8893 - precision: 0.7274 - recall: 0.3595 - val_loss: 1.7973 - val_accuracy: 0.8625 - val_precision: 0.5351 - val_recall: 0.2885
+Epoch 5/5
+359/359 [==============================] - 187s 520ms/step - loss: 1.1430 - accuracy: 0.8940 - precision: 0.7318 - recall: 0.4069 - val_loss: 1.4111 - val_accuracy: 0.8690 - val_precision: 0.5736 - val_recall: 0.3226
+[Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-18 23:54:35.514145: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-18 23:54:35.514571: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-18 23:54:35.516648: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688
+
+ flatten (Flatten)           (None, 512)               0
+
+ dense (Dense)               (None, 32)                16416
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,733,447
+Trainable params: 7,098,183
+Non-trainable params: 7,635,264
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 248s 688ms/step - loss: 3.1068 - accuracy: 0.8512 - precision: 0.1717 - recall: 0.0108 - val_loss: 1.8369 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 2/5
+359/359 [==============================] - 211s 588ms/step - loss: 1.8214 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8133 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 3/5
+359/359 [==============================] - 211s 587ms/step - loss: 1.8112 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8101 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 4/5
+359/359 [==============================] - 234s 653ms/step - loss: 1.8100 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8098 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 5/5
+359/359 [==============================] - 227s 631ms/step - loss: 1.8100 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8097 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+
+[Data Augmentation + Batch Normalization + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-19 00:16:00.684348: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-19 00:16:00.684469: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-19 00:16:00.685205: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688  
+
+ flatten (Flatten)           (None, 512)               0
+
+ batch_normalization (BatchN  (None, 512)              2048      
+ ormalization)
+
+ dense (Dense)               (None, 32)                16416
+
+ batch_normalization_1 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ batch_normalization_2 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ batch_normalization_3 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,735,879
+Trainable params: 7,099,399
+Non-trainable params: 7,636,480
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 232s 642ms/step - loss: 1.7119 - accuracy: 0.8604 - precision: 0.6026 - recall: 0.0674 - val_loss: 1.7795 - val_accuracy: 0.8551 - val_precision: 0.4830 - val_recall: 0.2034
+Epoch 2/5
+359/359 [==============================] - 217s 603ms/step - loss: 1.5792 - accuracy: 0.8654 - precision: 0.6368 - recall: 0.1348 - val_loss: 1.7006 - val_accuracy: 0.8599 - val_precision: 0.5353 - val_recall: 0.1479
+Epoch 3/5
+359/359 [==============================] - 221s 615ms/step - loss: 1.5385 - accuracy: 0.8673 - precision: 0.6541 - recall: 0.1514 - val_loss: 1.5993 - val_accuracy: 0.8649 - val_precision: 0.5943 - val_recall: 0.1702
+Epoch 4/5
+359/359 [==============================] - 220s 614ms/step - loss: 1.5159 - accuracy: 0.8688 - precision: 0.6627 - recall: 0.1660 - val_loss: 2.3746 - val_accuracy: 0.8350 - val_precision: 0.3757 - val_recall: 0.2339
+Epoch 5/5
+359/359 [==============================] - 221s 615ms/step - loss: 1.4959 - accuracy: 0.8697 - precision: 0.6732 - recall: 0.1714 - val_loss: 1.6827 - val_accuracy: 0.8568 - val_precision: 0.4975 - val_recall: 0.2615
+
+[Data Augmentation + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-19 00:35:31.376482: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-19 00:35:31.376591: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-19 00:35:31.377138: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688
+
+ flatten (Flatten)           (None, 512)               0
+
+ dense (Dense)               (None, 32)                16416
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,733,447
+Trainable params: 7,098,183
+Non-trainable params: 7,635,264
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 193s 535ms/step - loss: 1.7537 - accuracy: 0.8587 - precision: 0.6037 - recall: 0.0313 - val_loss: 1.6475 - val_accuracy: 0.8635 - val_precision: 0.6768 - val_recall: 0.0850
+Epoch 2/5
+359/359 [==============================] - 189s 528ms/step - loss: 1.6108 - accuracy: 0.8653 - precision: 0.6601 - recall: 0.1176 - val_loss: 1.6120 - val_accuracy: 0.8651 - val_precision: 0.6273 - val_recall: 0.1378
+Epoch 3/5
+359/359 [==============================] - 186s 518ms/step - loss: 1.5596 - accuracy: 0.8686 - precision: 0.6841 - recall: 0.1489 - val_loss: 1.5531 - val_accuracy: 0.8687 - val_precision: 0.6622 - val_recall: 0.1650
+Epoch 4/5
+359/359 [==============================] - 189s 527ms/step - loss: 1.5324 - accuracy: 0.8702 - precision: 0.6848 - recall: 0.1688 - val_loss: 1.5583 - val_accuracy: 0.8677 - val_precision: 0.6966 - val_recall: 0.1312
+Epoch 5/5
+359/359 [==============================] - 190s 530ms/step - loss: 1.5096 - accuracy: 0.8708 - precision: 0.6819 - recall: 0.1794 - val_loss: 1.5668 - val_accuracy: 0.8690 - val_precision: 0.7176 - val_recall: 0.1367
+
+[Data Augmentation + DropOut + Dynamic Learning Rate]
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-19 00:52:39.289649: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-19 00:52:39.289791: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-19 00:52:39.290177: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688
+
+ dropout (Dropout)           (None, 1, 1, 512)         0
+
+ flatten (Flatten)           (None, 512)               0
+
+ dense (Dense)               (None, 32)                16416
+
+ activation (Activation)     (None, 32)                0
+
+ dropout_1 (Dropout)         (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dropout_2 (Dropout)         (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,733,447
+Trainable params: 7,098,183
+Non-trainable params: 7,635,264
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 185s 513ms/step - loss: 1.8748 - accuracy: 0.8567 - precision: 0.2516 - recall: 0.0017 - val_loss: 1.8112 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 2/5
+359/359 [==============================] - 186s 518ms/step - loss: 1.8134 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8101 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 3/5
+359/359 [==============================] - 191s 531ms/step - loss: 1.8117 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8100 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 4/5
+359/359 [==============================] - 190s 530ms/step - loss: 1.8113 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8098 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+Epoch 5/5
+359/359 [==============================] - 190s 530ms/step - loss: 1.8107 - accuracy: 0.8571 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.8096 - val_accuracy: 0.8571 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
