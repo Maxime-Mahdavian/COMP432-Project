@@ -10,7 +10,7 @@ def accuracy(output, label):
 
 
 # Base function for the ImageClassification. It handles all the steps throughout running the model
-# I am willing to change how it's implemented, but that's how I found how to do it, so I just went with it
+# It allows more flexibility for having data through the training of the model
 class ImageClassification(nn.Module):
     def training_step(self, batch):
         image, label = batch
@@ -40,16 +40,16 @@ class ImageClassification(nn.Module):
 
 
 # This is an implementation of the Resnet9 neural network. not sure if it's good
-class ConvNetwork(ImageClassification):
+class ResNet(ImageClassification):
     def __init__(self, in_channels, num_class):
         super().__init__()
 
-        self.conv1 = conv_block(in_channels, 64)
-        self.conv2 = conv_block(64, 128, pool=True)
-        self.res1 = nn.Sequential(conv_block(128, 128), conv_block(128, 128))
-        self.conv3 = conv_block(128, 256, pool=True)
-        self.conv4 = conv_block(256, 512, pool=True)
-        self.res2 = nn.Sequential(conv_block(512, 512), conv_block(512, 512))
+        self.conv1 = create_conv_layer(in_channels, 64)
+        self.conv2 = create_conv_layer(64, 128, pool=True)
+        self.res1 = nn.Sequential(create_conv_layer(128, 128), create_conv_layer(128, 128))
+        self.conv3 = create_conv_layer(128, 256, pool=True)
+        self.conv4 = create_conv_layer(256, 512,pool=True)
+        self.res2 = nn.Sequential(create_conv_layer(512, 512), create_conv_layer(512, 512,))
         self.classifier = nn.Sequential(nn.MaxPool2d(4), nn.Flatten(), nn.Linear(512, num_class))
 
     def forward(self, inputs):
@@ -64,13 +64,21 @@ class ConvNetwork(ImageClassification):
 
 
 # Create a layer of the convolutional layer
-def conv_block(in_channels, out_channels, pool=False, normalize=True):
+def create_conv_layer(in_channels, out_channels, activation='leaky', pool=False, normalize=True, init=True):
     layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1)]
+
+    if init and activation == 'relu':
+        torch.nn.init.kaiming_uniform_(layers[0].weight, nonlinearity='relu')
+    elif init and activation == 'leaky':
+        torch.nn.init.kaiming_uniform_(layers[0].weight)
 
     if normalize:
         layers.append(nn.BatchNorm2d(out_channels))
 
-    layers.append(nn.ReLU(inplace=True))
+    if activation == 'relu':
+        layers.append(nn.ReLU(inplace=True))
+    elif activation == 'leaky':
+        layers.append(nn.LeakyReLU(inplace=True))
 
     if pool:
         layers.append(nn.MaxPool2d(2))
@@ -89,18 +97,18 @@ def get_learning_rate(optimizer):
         return param['lr']
 
 
-def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, grad_clip=None,
+def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, max_acc=65,grad_clip=None,
           opt_func=torch.optim.SGD, file=None):
     torch.cuda.empty_cache()
     history = []
 
     optimizer = opt_func(model.parameters(), max_lr, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr, epochs=epochs,
-                                                    steps_per_epoch=len(trn_dataloader))
+    # scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr, epochs=epochs,
+    #                                                 steps_per_epoch=len(trn_dataloader))
 
-    file.write(f'max_lr: {max_lr}, weight_decay: {weight_decay}, grad_clip: {grad_clip}, optimizer: {opt_func}\n')
-    file.write('----------------------------------------------------------------------------------------------\n\n')
-    for epoch in range(epochs):
+    # file.write(f'\nmax_lr: {max_lr}, weight_decay: {weight_decay}, grad_clip: {grad_clip}, optimizer: {opt_func}\n')
+    # file.write('----------------------------------------------------------------------------------------------\n\n')
+    for epoch in range(1, epochs+1):
         start = timeit.default_timer()
         model.train()
         trn_loss = []
@@ -118,7 +126,7 @@ def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0,
             optimizer.zero_grad()
 
             lr_list.append(get_learning_rate(optimizer))
-            scheduler.step()
+            # scheduler.step()
 
         result = evaluate(model, tst_dataloader)
         result['test_loss'] = torch.stack(trn_loss).mean().item()
@@ -126,6 +134,6 @@ def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0,
         end = timeit.default_timer() - start
         model.epoch_end(epoch, result, end, file)
         history.append(result)
-        if result['acc'] >= 0.65:
+        if result['acc'] >= max_acc:
             break
     return history

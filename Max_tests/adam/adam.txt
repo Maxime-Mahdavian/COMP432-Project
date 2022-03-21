@@ -1,0 +1,103 @@
+Adam Test:
+Learning rate: 0.001 (This is the default learning rate for Adam, 0.1 is really bad with Adam)
+No normalization, no initialization
+Grad-clip on, Weight-decay on
+Adam
+
+Epoch [0], test_loss: 1.9401, acc: 0.1393, Epoch_time: 0
+Epoch [1], last_lr: 0.00100, train_loss: 1.8086, test_loss: 1.7854, acc: 0.2512, Epoch_time: 21.685320325999783
+Epoch [2], last_lr: 0.00100, train_loss: 1.7651, test_loss: 1.7069, acc: 0.2832, Epoch_time: 21.943232977999287
+Epoch [3], last_lr: 0.00100, train_loss: 1.6120, test_loss: 1.4610, acc: 0.4431, Epoch_time: 20.893724466001004
+Epoch [4], last_lr: 0.00100, train_loss: 1.3703, test_loss: 1.2529, acc: 0.5164, Epoch_time: 20.89047339699755
+Epoch [5], last_lr: 0.00100, train_loss: 1.2346, test_loss: 1.1701, acc: 0.5553, Epoch_time: 21.066514625003038
+Epoch [6], last_lr: 0.00100, train_loss: 1.1493, test_loss: 1.1514, acc: 0.5642, Epoch_time: 20.66143754500081
+Epoch [7], last_lr: 0.00100, train_loss: 1.1062, test_loss: 1.0915, acc: 0.5847, Epoch_time: 20.807333775999723
+Epoch [8], last_lr: 0.00100, train_loss: 1.0624, test_loss: 1.0477, acc: 0.6043, Epoch_time: 21.01857714400103
+Epoch [9], last_lr: 0.00100, train_loss: 1.0294, test_loss: 1.0571, acc: 0.6028, Epoch_time: 20.633308835997013
+Epoch [10], last_lr: 0.00100, train_loss: 1.0035, test_loss: 1.0216, acc: 0.6070, Epoch_time: 23.079907158000424
+Epoch [11], last_lr: 0.00100, train_loss: 0.9786, test_loss: 1.0294, acc: 0.6102, Epoch_time: 22.242782567001996
+Epoch [12], last_lr: 0.00100, train_loss: 0.9570, test_loss: 0.9881, acc: 0.6221, Epoch_time: 22.07552014799876
+Epoch [13], last_lr: 0.00100, train_loss: 0.9324, test_loss: 1.0291, acc: 0.6240, Epoch_time: 22.165233347997855
+Epoch [14], last_lr: 0.00100, train_loss: 0.9178, test_loss: 1.0209, acc: 0.6165, Epoch_time: 22.041671388000395
+Epoch [15], last_lr: 0.00100, train_loss: 0.9043, test_loss: 0.9697, acc: 0.6347, Epoch_time: 21.719703916998697
+Epoch [16], last_lr: 0.00100, train_loss: 0.8853, test_loss: 0.9771, acc: 0.6292, Epoch_time: 21.97471181400033
+Epoch [17], last_lr: 0.00100, train_loss: 0.8641, test_loss: 0.9675, acc: 0.6368, Epoch_time: 21.779259237999213
+Epoch [18], last_lr: 0.00100, train_loss: 0.8564, test_loss: 0.9614, acc: 0.6427, Epoch_time: 21.728908945999137
+Epoch [19], last_lr: 0.00100, train_loss: 0.8400, test_loss: 0.9488, acc: 0.6498, Epoch_time: 22.299307907000184
+Epoch [20], last_lr: 0.00100, train_loss: 0.8251, test_loss: 0.9537, acc: 0.6478, Epoch_time: 21.474535850000393
+Epoch [21], last_lr: 0.00100, train_loss: 0.8141, test_loss: 0.9656, acc: 0.6455, Epoch_time: 21.437499701001798
+Epoch [22], last_lr: 0.00100, train_loss: 0.7966, test_loss: 0.9579, acc: 0.6484, Epoch_time: 22.77200573599839
+Epoch [23], last_lr: 0.00100, train_loss: 0.7897, test_loss: 0.9730, acc: 0.6445, Epoch_time: 22.434820922000654
+Epoch [24], last_lr: 0.00100, train_loss: 0.7737, test_loss: 0.9926, acc: 0.6436, Epoch_time: 22.38364169399938
+Epoch [25], last_lr: 0.00100, train_loss: 0.7630, test_loss: 0.9522, acc: 0.6498, Epoch_time: 21.964334193999093
+Epoch [26], last_lr: 0.00100, train_loss: 0.7521, test_loss: 0.9585, acc: 0.6472, Epoch_time: 21.959647430001496
+Epoch [27], last_lr: 0.00100, train_loss: 0.7412, test_loss: 0.9632, acc: 0.6454, Epoch_time: 21.801559512001404
+Epoch [28], last_lr: 0.00100, train_loss: 0.7320, test_loss: 0.9498, acc: 0.6508, Epoch_time: 21.92379089899987
+0:10:08.876290
+
+Epoch [0], test_loss: 1.9287, acc: 0.2464, Epoch_time: 0
+Epoch [1], last_lr: 0.00100, train_loss: 1.8094, test_loss: 1.7812, acc: 0.2468, Epoch_time: 21.9646263930008
+Epoch [2], last_lr: 0.00100, train_loss: 1.7606, test_loss: 1.7131, acc: 0.3125, Epoch_time: 22.92007958499744
+Epoch [3], last_lr: 0.00100, train_loss: 1.6180, test_loss: 1.4498, acc: 0.4392, Epoch_time: 22.003354607997608
+Epoch [4], last_lr: 0.00100, train_loss: 1.3873, test_loss: 1.2983, acc: 0.5016, Epoch_time: 22.51664024800266
+Epoch [5], last_lr: 0.00100, train_loss: 1.2733, test_loss: 1.2107, acc: 0.5437, Epoch_time: 22.653338152998913
+Epoch [6], last_lr: 0.00100, train_loss: 1.1819, test_loss: 1.1702, acc: 0.5484, Epoch_time: 22.28751822200138
+Epoch [7], last_lr: 0.00100, train_loss: 1.1252, test_loss: 1.1018, acc: 0.5822, Epoch_time: 22.214487799999915
+Epoch [8], last_lr: 0.00100, train_loss: 1.0793, test_loss: 1.0937, acc: 0.5895, Epoch_time: 22.471663249998528
+Epoch [9], last_lr: 0.00100, train_loss: 1.0508, test_loss: 1.0630, acc: 0.5984, Epoch_time: 22.289615829999093
+Epoch [10], last_lr: 0.00100, train_loss: 1.0179, test_loss: 1.0342, acc: 0.6110, Epoch_time: 23.584460598001897
+Epoch [11], last_lr: 0.00100, train_loss: 0.9922, test_loss: 1.0055, acc: 0.6178, Epoch_time: 22.46946621099778
+Epoch [12], last_lr: 0.00100, train_loss: 0.9796, test_loss: 1.0473, acc: 0.6034, Epoch_time: 21.992203271998733
+Epoch [13], last_lr: 0.00100, train_loss: 0.9525, test_loss: 1.0332, acc: 0.6070, Epoch_time: 21.768378831002337
+Epoch [14], last_lr: 0.00100, train_loss: 0.9370, test_loss: 0.9951, acc: 0.6265, Epoch_time: 21.728642413996567
+Epoch [15], last_lr: 0.00100, train_loss: 0.9175, test_loss: 1.0086, acc: 0.6208, Epoch_time: 21.709822356002405
+Epoch [16], last_lr: 0.00100, train_loss: 0.8931, test_loss: 1.0264, acc: 0.6215, Epoch_time: 21.98513490100231
+Epoch [17], last_lr: 0.00100, train_loss: 0.8882, test_loss: 0.9784, acc: 0.6346, Epoch_time: 22.028214279001986
+Epoch [18], last_lr: 0.00100, train_loss: 0.8716, test_loss: 0.9888, acc: 0.6391, Epoch_time: 22.480551955999545
+Epoch [19], last_lr: 0.00100, train_loss: 0.8564, test_loss: 0.9647, acc: 0.6432, Epoch_time: 21.436565199001052
+Epoch [20], last_lr: 0.00100, train_loss: 0.8357, test_loss: 0.9684, acc: 0.6460, Epoch_time: 21.86198277800213
+Epoch [21], last_lr: 0.00100, train_loss: 0.8286, test_loss: 1.0188, acc: 0.6404, Epoch_time: 22.10342445200149
+Epoch [22], last_lr: 0.00100, train_loss: 0.8161, test_loss: 0.9545, acc: 0.6559, Epoch_time: 22.42892352099807
+0:08:08.931535
+
+Epoch [0], test_loss: 1.9503, acc: 0.1708, Epoch_time: 0
+Epoch [1], last_lr: 0.00100, train_loss: 1.8075, test_loss: 1.7823, acc: 0.2551, Epoch_time: 22.79659528299817
+Epoch [2], last_lr: 0.00100, train_loss: 1.7721, test_loss: 1.7248, acc: 0.3004, Epoch_time: 22.424689911000314
+Epoch [3], last_lr: 0.00100, train_loss: 1.6166, test_loss: 1.4878, acc: 0.4278, Epoch_time: 21.835822154000198
+Epoch [4], last_lr: 0.00100, train_loss: 1.3909, test_loss: 1.2972, acc: 0.4930, Epoch_time: 22.310080552000727
+Epoch [5], last_lr: 0.00100, train_loss: 1.2582, test_loss: 1.1981, acc: 0.5442, Epoch_time: 22.511977801001194
+Epoch [6], last_lr: 0.00100, train_loss: 1.1775, test_loss: 1.1763, acc: 0.5468, Epoch_time: 22.633468990999972
+Epoch [7], last_lr: 0.00100, train_loss: 1.1244, test_loss: 1.1080, acc: 0.5794, Epoch_time: 22.028047078998497
+Epoch [8], last_lr: 0.00100, train_loss: 1.0857, test_loss: 1.1076, acc: 0.5702, Epoch_time: 22.518264509999426
+Epoch [9], last_lr: 0.00100, train_loss: 1.0510, test_loss: 1.0571, acc: 0.5976, Epoch_time: 22.687214262998168
+Epoch [10], last_lr: 0.00100, train_loss: 1.0193, test_loss: 1.0346, acc: 0.6122, Epoch_time: 22.932808574001683
+Epoch [11], last_lr: 0.00100, train_loss: 0.9943, test_loss: 1.0717, acc: 0.5980, Epoch_time: 22.048798490999616
+Epoch [12], last_lr: 0.00100, train_loss: 0.9774, test_loss: 1.0103, acc: 0.6206, Epoch_time: 22.172703577001812
+Epoch [13], last_lr: 0.00100, train_loss: 0.9551, test_loss: 1.0270, acc: 0.6228, Epoch_time: 22.24241344099937
+Epoch [14], last_lr: 0.00100, train_loss: 0.9397, test_loss: 1.0152, acc: 0.6258, Epoch_time: 22.114341020998836
+Epoch [15], last_lr: 0.00100, train_loss: 0.9189, test_loss: 1.0044, acc: 0.6300, Epoch_time: 22.049646572999336
+Epoch [16], last_lr: 0.00100, train_loss: 0.8997, test_loss: 0.9816, acc: 0.6338, Epoch_time: 22.117092333999608
+Epoch [17], last_lr: 0.00100, train_loss: 0.8845, test_loss: 0.9950, acc: 0.6331, Epoch_time: 22.35295943500023
+Epoch [18], last_lr: 0.00100, train_loss: 0.8718, test_loss: 1.0092, acc: 0.6256, Epoch_time: 23.066919386998052
+Epoch [19], last_lr: 0.00100, train_loss: 0.8535, test_loss: 0.9897, acc: 0.6268, Epoch_time: 22.567589656002383
+Epoch [20], last_lr: 0.00100, train_loss: 0.8369, test_loss: 0.9897, acc: 0.6393, Epoch_time: 22.372671624998475
+Epoch [21], last_lr: 0.00100, train_loss: 0.8266, test_loss: 1.0111, acc: 0.6320, Epoch_time: 22.068422705000557
+Epoch [22], last_lr: 0.00100, train_loss: 0.8192, test_loss: 0.9756, acc: 0.6450, Epoch_time: 22.36951281400252
+Epoch [23], last_lr: 0.00100, train_loss: 0.8016, test_loss: 0.9750, acc: 0.6368, Epoch_time: 21.90289932900123
+Epoch [24], last_lr: 0.00100, train_loss: 0.7923, test_loss: 1.0126, acc: 0.6326, Epoch_time: 21.38144094800009
+Epoch [25], last_lr: 0.00100, train_loss: 0.7764, test_loss: 0.9831, acc: 0.6454, Epoch_time: 21.437795621997793
+Epoch [26], last_lr: 0.00100, train_loss: 0.7617, test_loss: 1.0016, acc: 0.6327, Epoch_time: 21.426682679000805
+Epoch [27], last_lr: 0.00100, train_loss: 0.7499, test_loss: 0.9732, acc: 0.6460, Epoch_time: 21.50864782100325
+Epoch [28], last_lr: 0.00100, train_loss: 0.7373, test_loss: 0.9835, acc: 0.6455, Epoch_time: 21.538469719002023
+Epoch [29], last_lr: 0.00100, train_loss: 0.7241, test_loss: 0.9998, acc: 0.6426, Epoch_time: 21.455449557000975
+Epoch [30], last_lr: 0.00100, train_loss: 0.7135, test_loss: 1.0122, acc: 0.6355, Epoch_time: 21.433391026999743
+Epoch [31], last_lr: 0.00100, train_loss: 0.7085, test_loss: 0.9839, acc: 0.6510, Epoch_time: 21.42681155199898
+0:11:25.773101
+
+Results and Observation
+Average running time: 9:54 minutes
+It is less than the adaptive learning rate test (OneCycleLR) on average,
+but it is also way less consistent than learning rate or control too.
+Time difference between 3 runs was bigger.
+It is way faster to get close to 65% accuracy then the first two tests
+Not many spikes in loss as well -- momentum in action most probably

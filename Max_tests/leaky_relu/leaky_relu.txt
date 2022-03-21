@@ -1,0 +1,79 @@
+Epoch [0], test_loss: 2.3282, acc: 0.1658, Epoch_time: 0
+Epoch [1], last_lr: 0.00045, train_loss: 1.6668, test_loss: 1.4179, acc: 0.4681, Epoch_time: 20.063947814996936
+Epoch [2], last_lr: 0.00045, train_loss: 1.3231, test_loss: 1.3231, acc: 0.4942, Epoch_time: 20.094091375998687
+Epoch [3], last_lr: 0.00045, train_loss: 1.1936, test_loss: 1.4561, acc: 0.4822, Epoch_time: 20.014093407000473
+Epoch [4], last_lr: 0.00045, train_loss: 1.1182, test_loss: 1.2414, acc: 0.5436, Epoch_time: 20.10980595300134
+Epoch [5], last_lr: 0.00045, train_loss: 1.0616, test_loss: 1.1166, acc: 0.5822, Epoch_time: 20.04488082899843
+Epoch [6], last_lr: 0.00045, train_loss: 1.0269, test_loss: 1.1795, acc: 0.5645, Epoch_time: 20.060767728002247
+Epoch [7], last_lr: 0.00045, train_loss: 0.9785, test_loss: 1.0733, acc: 0.6011, Epoch_time: 20.157177597000555
+Epoch [8], last_lr: 0.00045, train_loss: 0.9455, test_loss: 1.0399, acc: 0.6065, Epoch_time: 20.09178926399909
+Epoch [9], last_lr: 0.00045, train_loss: 0.9081, test_loss: 1.0704, acc: 0.6010, Epoch_time: 20.157431281000754
+Epoch [10], last_lr: 0.00045, train_loss: 0.8853, test_loss: 1.0361, acc: 0.6201, Epoch_time: 20.233172833002754
+Epoch [11], last_lr: 0.00045, train_loss: 0.8603, test_loss: 1.0006, acc: 0.6310, Epoch_time: 20.170731263999187
+Epoch [12], last_lr: 0.00045, train_loss: 0.8305, test_loss: 1.0883, acc: 0.5957, Epoch_time: 20.17372536900075
+Epoch [13], last_lr: 0.00045, train_loss: 0.8013, test_loss: 1.1417, acc: 0.5794, Epoch_time: 20.732561969001836
+Epoch [14], last_lr: 0.00045, train_loss: 0.7797, test_loss: 0.9709, acc: 0.6462, Epoch_time: 19.693428459999268
+Epoch [15], last_lr: 0.00045, train_loss: 0.7503, test_loss: 1.0081, acc: 0.6402, Epoch_time: 20.15951160899931
+Epoch [16], last_lr: 0.00045, train_loss: 0.7319, test_loss: 1.0305, acc: 0.6393, Epoch_time: 20.140311279999878
+Epoch [17], last_lr: 0.00045, train_loss: 0.7039, test_loss: 0.9878, acc: 0.6438, Epoch_time: 20.370526047998283
+Epoch [18], last_lr: 0.00045, train_loss: 0.6852, test_loss: 1.0152, acc: 0.6353, Epoch_time: 20.141706933001842
+Epoch [19], last_lr: 0.00045, train_loss: 0.6572, test_loss: 1.0498, acc: 0.6203, Epoch_time: 20.085133412998402
+Epoch [20], last_lr: 0.00045, train_loss: 0.6359, test_loss: 1.0859, acc: 0.6279, Epoch_time: 20.125841925000714
+Epoch [21], last_lr: 0.00045, train_loss: 0.6063, test_loss: 1.0133, acc: 0.6415, Epoch_time: 20.034658201999264
+Epoch [22], last_lr: 0.00045, train_loss: 0.5876, test_loss: 1.0160, acc: 0.6405, Epoch_time: 20.038478842998302
+Epoch [23], last_lr: 0.00045, train_loss: 0.5518, test_loss: 0.9965, acc: 0.6589, Epoch_time: 20.134167427000648
+0:07:43.046663
+Epoch [0], test_loss: 3.6003, acc: 0.0147, Epoch_time: 0
+Epoch [1], last_lr: 0.00045, train_loss: 1.6705, test_loss: 1.4058, acc: 0.4676, Epoch_time: 20.310215378001885
+Epoch [2], last_lr: 0.00045, train_loss: 1.3260, test_loss: 1.2948, acc: 0.5109, Epoch_time: 20.114135699001054
+Epoch [3], last_lr: 0.00045, train_loss: 1.1918, test_loss: 1.3680, acc: 0.4979, Epoch_time: 20.13584516500123
+Epoch [4], last_lr: 0.00045, train_loss: 1.1297, test_loss: 1.2726, acc: 0.5306, Epoch_time: 20.07580166900152
+Epoch [5], last_lr: 0.00045, train_loss: 1.0641, test_loss: 1.0967, acc: 0.5912, Epoch_time: 20.091713130001153
+Epoch [6], last_lr: 0.00045, train_loss: 1.0263, test_loss: 1.1439, acc: 0.5728, Epoch_time: 20.4238489820018
+Epoch [7], last_lr: 0.00045, train_loss: 0.9788, test_loss: 1.0634, acc: 0.6101, Epoch_time: 20.539246768999874
+Epoch [8], last_lr: 0.00045, train_loss: 0.9438, test_loss: 1.0259, acc: 0.6132, Epoch_time: 19.99826638399827
+Epoch [9], last_lr: 0.00045, train_loss: 0.9063, test_loss: 1.0587, acc: 0.6088, Epoch_time: 19.95013720499992
+Epoch [10], last_lr: 0.00045, train_loss: 0.8901, test_loss: 1.0041, acc: 0.6264, Epoch_time: 20.014742224000656
+Epoch [11], last_lr: 0.00045, train_loss: 0.8650, test_loss: 1.0393, acc: 0.6221, Epoch_time: 20.001875739999377
+Epoch [12], last_lr: 0.00045, train_loss: 0.8337, test_loss: 1.1062, acc: 0.5842, Epoch_time: 20.402792386998044
+Epoch [13], last_lr: 0.00045, train_loss: 0.8018, test_loss: 1.0353, acc: 0.6243, Epoch_time: 20.47280311599752
+Epoch [14], last_lr: 0.00045, train_loss: 0.7849, test_loss: 1.0020, acc: 0.6427, Epoch_time: 20.081253068998194
+Epoch [15], last_lr: 0.00045, train_loss: 0.7509, test_loss: 0.9892, acc: 0.6468, Epoch_time: 20.10175938300017
+Epoch [16], last_lr: 0.00045, train_loss: 0.7318, test_loss: 1.0356, acc: 0.6272, Epoch_time: 20.541570380999474
+Epoch [17], last_lr: 0.00045, train_loss: 0.7052, test_loss: 0.9781, acc: 0.6505, Epoch_time: 20.11290256600114
+0:05:43.387208
+Epoch [0], test_loss: 3.0079, acc: 0.0147, Epoch_time: 0
+Epoch [1], last_lr: 0.00045, train_loss: 1.6309, test_loss: 1.4407, acc: 0.4505, Epoch_time: 21.354307477002294
+Epoch [2], last_lr: 0.00045, train_loss: 1.3220, test_loss: 1.2762, acc: 0.5287, Epoch_time: 20.852708430000348
+Epoch [3], last_lr: 0.00045, train_loss: 1.1889, test_loss: 1.1947, acc: 0.5552, Epoch_time: 21.27025526199941
+Epoch [4], last_lr: 0.00045, train_loss: 1.1007, test_loss: 1.2194, acc: 0.5443, Epoch_time: 19.830502730997978
+Epoch [5], last_lr: 0.00045, train_loss: 1.0603, test_loss: 1.1772, acc: 0.5578, Epoch_time: 20.00324810500024
+Epoch [6], last_lr: 0.00045, train_loss: 1.0166, test_loss: 1.1136, acc: 0.5822, Epoch_time: 20.417209039998852
+Epoch [7], last_lr: 0.00045, train_loss: 0.9709, test_loss: 1.1255, acc: 0.5778, Epoch_time: 20.379810869999346
+Epoch [8], last_lr: 0.00045, train_loss: 0.9430, test_loss: 1.0614, acc: 0.6096, Epoch_time: 19.811063716999342
+Epoch [9], last_lr: 0.00045, train_loss: 0.8995, test_loss: 1.0224, acc: 0.6139, Epoch_time: 20.20843326999966
+Epoch [10], last_lr: 0.00045, train_loss: 0.8835, test_loss: 1.1239, acc: 0.5745, Epoch_time: 19.86635665599897
+Epoch [11], last_lr: 0.00045, train_loss: 0.8530, test_loss: 1.0006, acc: 0.6355, Epoch_time: 20.233425686001283
+Epoch [12], last_lr: 0.00045, train_loss: 0.8281, test_loss: 0.9996, acc: 0.6365, Epoch_time: 19.950751696000225
+Epoch [13], last_lr: 0.00045, train_loss: 0.8026, test_loss: 1.0438, acc: 0.6319, Epoch_time: 20.069085027000256
+Epoch [14], last_lr: 0.00045, train_loss: 0.7742, test_loss: 1.0423, acc: 0.6304, Epoch_time: 20.22878080400187
+Epoch [15], last_lr: 0.00045, train_loss: 0.7491, test_loss: 1.1644, acc: 0.5740, Epoch_time: 19.882915985999716
+Epoch [16], last_lr: 0.00045, train_loss: 0.7228, test_loss: 1.0057, acc: 0.6442, Epoch_time: 19.828101759001584
+Epoch [17], last_lr: 0.00045, train_loss: 0.6949, test_loss: 1.0187, acc: 0.6309, Epoch_time: 19.80061292300161
+Epoch [18], last_lr: 0.00045, train_loss: 0.6802, test_loss: 0.9852, acc: 0.6481, Epoch_time: 21.27663770900108
+Epoch [19], last_lr: 0.00045, train_loss: 0.6503, test_loss: 1.0249, acc: 0.6450, Epoch_time: 21.539739857002132
+Epoch [20], last_lr: 0.00045, train_loss: 0.6273, test_loss: 1.0033, acc: 0.6490, Epoch_time: 21.58494648800115
+Epoch [21], last_lr: 0.00045, train_loss: 0.5984, test_loss: 1.0670, acc: 0.6269, Epoch_time: 20.856025762997888
+Epoch [22], last_lr: 0.00045, train_loss: 0.5783, test_loss: 1.0126, acc: 0.6450, Epoch_time: 20.961927360000118
+Epoch [23], last_lr: 0.00045, train_loss: 0.5571, test_loss: 1.0346, acc: 0.6461, Epoch_time: 20.509721123999043
+Epoch [24], last_lr: 0.00045, train_loss: 0.5277, test_loss: 1.1322, acc: 0.6260, Epoch_time: 21.640313584997784
+Epoch [25], last_lr: 0.00045, train_loss: 0.5073, test_loss: 1.3066, acc: 0.5720, Epoch_time: 20.96245060000001
+Epoch [26], last_lr: 0.00045, train_loss: 0.4905, test_loss: 1.0829, acc: 0.6471, Epoch_time: 20.37742531099866
+Epoch [27], last_lr: 0.00045, train_loss: 0.4729, test_loss: 1.0695, acc: 0.6436, Epoch_time: 20.520085475000087
+Epoch [28], last_lr: 0.00045, train_loss: 0.4455, test_loss: 1.1138, acc: 0.6261, Epoch_time: 20.771956746000797
+Epoch [29], last_lr: 0.00045, train_loss: 0.4280, test_loss: 1.0709, acc: 0.6484, Epoch_time: 21.344516216999182
+Epoch [30], last_lr: 0.00045, train_loss: 0.4028, test_loss: 1.0851, acc: 0.6487, Epoch_time: 20.621447170000465
+Epoch [31], last_lr: 0.00045, train_loss: 0.3805, test_loss: 1.1068, acc: 0.6511, Epoch_time: 22.083813703000487
+0:10:39.091338
+
+Average running time: 8:00 minutes
