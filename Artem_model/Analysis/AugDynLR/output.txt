@@ -1,0 +1,48 @@
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-24 00:31:30.886832: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-24 00:31:30.886957: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-24 00:31:30.887450: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688  
+
+ flatten (Flatten)           (None, 512)               0
+
+ dense (Dense)               (None, 32)                16416
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,733,447
+Trainable params: 7,098,183
+Non-trainable params: 7,635,264
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 201s 558ms/step - loss: 1.7587 - accuracy: 0.8584 - precision: 0.5960 - recall: 0.0284 - val_loss: 1.6476 - val_accuracy: 0.8635 - val_precision: 0.6526 - val_recall: 0.0946
+Epoch 2/5
+359/359 [==============================] - 203s 567ms/step - loss: 1.6170 - accuracy: 0.8645 - precision: 0.6516 - recall: 0.1106 - val_loss: 1.5934 - val_accuracy: 0.8676 - val_precision: 0.6339 - val_recall: 0.1731
+Epoch 3/5
+359/359 [==============================] - 201s 560ms/step - loss: 1.5662 - accuracy: 0.8676 - precision: 0.6712 - recall: 0.1430 - val_loss: 1.5514 - val_accuracy: 0.8681 - val_precision: 0.6757 - val_recall: 0.1481
+Epoch 4/5
+359/359 [==============================] - 201s 561ms/step - loss: 1.5313 - accuracy: 0.8698 - precision: 0.6877 - recall: 0.1630 - val_loss: 1.5149 - val_accuracy: 0.8713 - val_precision: 0.6962 - val_recall: 0.1752
+Epoch 5/5
+359/359 [==============================] - 202s 563ms/step - loss: 1.5061 - accuracy: 0.8709 - precision: 0.6890 - recall: 0.1755 - val_loss: 1.5304 - val_accuracy: 0.8708 - val_precision: 0.7324 - val_recall: 0.1507
+113/113 [==============================] - 31s 273ms/step - loss: 1.5151 - accuracy: 0.8715 - precision: 0.7380 - recall: 0.1558
+Test loss: 1.5150840282440186
+Test accuracy: 0.8714920878410339

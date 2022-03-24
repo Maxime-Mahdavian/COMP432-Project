@@ -1,0 +1,60 @@
+Found 22968 images belonging to 7 classes.
+Found 5741 images belonging to 7 classes.
+Found 7178 images belonging to 7 classes.
+2022-03-24 00:51:20.624221: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-24 00:51:20.624322: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-24 00:51:20.624735: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vgg16 (Functional)          (None, 1, 1, 512)         14714688  
+
+ flatten (Flatten)           (None, 512)               0
+
+ batch_normalization (BatchN  (None, 512)              2048      
+ ormalization)
+
+ dense (Dense)               (None, 32)                16416
+
+ batch_normalization_1 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation (Activation)     (None, 32)                0
+
+ dense_1 (Dense)             (None, 32)                1056
+
+ batch_normalization_2 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_1 (Activation)   (None, 32)                0
+
+ dense_2 (Dense)             (None, 32)                1056
+
+ batch_normalization_3 (Batc  (None, 32)               128
+ hNormalization)
+
+ activation_2 (Activation)   (None, 32)                0
+
+ dense_3 (Dense)             (None, 7)                 231
+
+=================================================================
+Total params: 14,735,879
+Trainable params: 7,099,399
+Non-trainable params: 7,636,480
+_________________________________________________________________
+Epoch 1/5
+359/359 [==============================] - 213s 590ms/step - loss: 1.7103 - accuracy: 0.8606 - precision: 0.6159 - recall: 0.0647 - val_loss: 1.8213 - val_accuracy: 0.8577 - val_precision: 0.5085 - val_recall: 0.1092
+Epoch 2/5
+359/359 [==============================] - 209s 583ms/step - loss: 1.5768 - accuracy: 0.8650 - precision: 0.6527 - recall: 0.1183 - val_loss: 1.8147 - val_accuracy: 0.8555 - val_precision: 0.4777 - val_recall: 0.1272
+Epoch 3/5
+359/359 [==============================] - 202s 564ms/step - loss: 1.5327 - accuracy: 0.8678 - precision: 0.6666 - recall: 0.1493 - val_loss: 1.6003 - val_accuracy: 0.8622 - val_precision: 0.5594 - val_recall: 0.1665
+Epoch 4/5
+359/359 [==============================] - 204s 567ms/step - loss: 1.5076 - accuracy: 0.8699 - precision: 0.6840 - recall: 0.1657 - val_loss: 1.6364 - val_accuracy: 0.8638 - val_precision: 0.5953 - val_recall: 0.1463
+Epoch 5/5
+359/359 [==============================] - 204s 569ms/step - loss: 1.4858 - accuracy: 0.8705 - precision: 0.6771 - recall: 0.1789 - val_loss: 1.5602 - val_accuracy: 0.8644 - val_precision: 0.5737 - val_recall: 0.1986
+113/113 [==============================] - 28s 244ms/step - loss: 1.5451 - accuracy: 0.8644 - precision: 0.5737 - recall: 0.1969
+Test loss: 1.5451127290725708
+Test accuracy: 0.8643671274185181
