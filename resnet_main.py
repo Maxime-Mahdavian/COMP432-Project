@@ -15,29 +15,28 @@ import datetime
 import device_function
 import ResNet as convnet
 import argparse
-from split_folder import ratio
-from orion.client import report_objective
+
 
 # ratio('dataset2/train', output='output', seed=40093125, ratio=(0.8, 0.2))
 
 data_dir = 'dataset'
 torch.manual_seed(0)
 
+# Add the command line argument for the learning rate
 parser = argparse.ArgumentParser()
 parser.add_argument("-lr", help='learning rate')
-parser.add_argument("-batch_size", help='batch size')
 args = parser.parse_args()
 
 # Some hyperparameter and objective function
-batch_size = int(args.batch_size)
+batch_size = 200
 epoch = 50
 max_lr = float(args.lr)
 grad_clip = 0.1
 weight_decay = 1e-4
 max_acc = 0.65
-obj_func = torch.optim.Adam
+obj_func = torch.optim.SGD
 
-file = open('leaky_relu.txt', 'a')
+file = open('test.txt', 'a')
 
 
 # Show part of a batch
@@ -50,7 +49,7 @@ def show_batch(dataloader):
         plt.show()
         break
 
-
+# Plot the graph for the loss and accuracy at the end of a run
 def plot_graph(history, title):
     plt.subplot(1, 2, 1)
     acc = [x['acc'] for x in history]
@@ -109,12 +108,12 @@ train_dataloader = device_function.DeviceDataloader(train_dataloader, device)
 test_dataloader = device_function.DeviceDataloader(test_dataloader, device)
 validation_dataloader = device_function.DeviceDataloader(validation_dataloader, device)
 #
-for i in range(3):
-    filename = "leaky_relu" + str(i) + ".png"
+for i in range(1):
+    filename = "test" + str(i) + ".png"
 
     # Create the model ConvNetwork and put it on the device
     model = device_function.to_device(convnet.ResNet(3, 7), device)
-
+    #
     # History is just to get the history of the loss and accuracy, mostly to see how the model
     # evolves
     history = [convnet.evaluate(model, validation_dataloader)]
@@ -129,7 +128,7 @@ for i in range(3):
     history += convnet.cycle(epoch, max_lr, model, train_dataloader, validation_dataloader, max_acc=max_acc,
                              grad_clip=grad_clip, weight_decay=weight_decay, opt_func=obj_func, file=file)
 
-    # Orion helper function
+    # Orion helper function, need to comment it out when not doing cross-validation
     # report_objective(history[-1]['loss'])
 
     duration = timeit.default_timer() - start

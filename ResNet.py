@@ -10,14 +10,16 @@ def accuracy(output, label):
 
 
 # Base function for the ImageClassification. It handles all the steps throughout running the model
-# It allows more flexibility for having data through the training of the model
+# It allows more flexibility for recording data through the training of the model
 class ImageClassification(nn.Module):
+    # Feed forward
     def training_step(self, batch):
         image, label = batch
         output = self(image)
         loss = torch.nn.functional.cross_entropy(output, label)
         return loss
 
+    # Feed forward during training
     def testing_step(self, batch):
         image, label = batch
         output = self(image)
@@ -25,6 +27,8 @@ class ImageClassification(nn.Module):
         acc = accuracy(output, label)
         return {'loss': loss.detach(), 'acc': acc}
 
+    # Collects several stats necessary to see how the model is performaning during training, namely
+    # accuracy and loss
     def testing_end(self, output):
         batch_loss = [x['loss'] for x in output]
         epoch_loss = torch.stack(batch_loss).mean()
@@ -32,6 +36,7 @@ class ImageClassification(nn.Module):
         epoch_accuracy = torch.stack(batch_accuracy).mean()
         return {'loss': epoch_loss.item(), 'acc': epoch_accuracy.item()}
 
+    # Displays the stats at the end of the epoch
     def epoch_end(self, epoch, result, time, file):
         print(f"Epoch [{epoch}], last_lr: {result['lrs'][-1]:.5f}, train_loss: {result['test_loss']:.4f}, "
               f"test_loss: {result['loss']:.4f}, acc: {result['acc']:.4f}, Epoch_time: {time}")
@@ -48,8 +53,8 @@ class ResNet(ImageClassification):
         self.conv2 = create_conv_layer(64, 128, pool=True)
         self.res1 = nn.Sequential(create_conv_layer(128, 128), create_conv_layer(128, 128))
         self.conv3 = create_conv_layer(128, 256, pool=True)
-        self.conv4 = create_conv_layer(256, 512,pool=True)
-        self.res2 = nn.Sequential(create_conv_layer(512, 512), create_conv_layer(512, 512,))
+        self.conv4 = create_conv_layer(256, 512, pool=True)
+        self.res2 = nn.Sequential(create_conv_layer(512, 512), create_conv_layer(512, 512, ))
         self.classifier = nn.Sequential(nn.MaxPool2d(4), nn.Flatten(), nn.Linear(512, num_class))
 
     def forward(self, inputs):
@@ -64,7 +69,7 @@ class ResNet(ImageClassification):
 
 
 # Create a layer of the convolutional layer
-def create_conv_layer(in_channels, out_channels, activation='leaky', pool=False, normalize=True, init=True):
+def create_conv_layer(in_channels, out_channels, activation='relu', pool=False, normalize=True, init=True):
     layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1)]
 
     if init and activation == 'relu':
@@ -85,6 +90,7 @@ def create_conv_layer(in_channels, out_channels, activation='leaky', pool=False,
     return nn.Sequential(*layers)
 
 
+# Test function
 @torch.no_grad()
 def evaluate(model, loader):
     model.eval()
@@ -92,12 +98,14 @@ def evaluate(model, loader):
     return model.testing_end(output)
 
 
+# Returns the learning rate
 def get_learning_rate(optimizer):
     for param in optimizer.param_groups:
         return param['lr']
 
 
-def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, max_acc=65,grad_clip=None,
+# Main training function
+def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, max_acc=65, grad_clip=None,
           opt_func=torch.optim.SGD, file=None):
     torch.cuda.empty_cache()
     history = []
@@ -108,7 +116,7 @@ def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0,
 
     # file.write(f'\nmax_lr: {max_lr}, weight_decay: {weight_decay}, grad_clip: {grad_clip}, optimizer: {opt_func}\n')
     # file.write('----------------------------------------------------------------------------------------------\n\n')
-    for epoch in range(1, epochs+1):
+    for epoch in range(1, epochs + 1):
         start = timeit.default_timer()
         model.train()
         trn_loss = []
