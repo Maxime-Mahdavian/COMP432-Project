@@ -1,5 +1,5 @@
-Maxime Mahdavian
-Artem Chernigel
+Maxime Mahdavian [40093125]
+Artem Chernigel [40115241]
 
 COMP432 Project
 --------------------
@@ -39,4 +39,5 @@ To run vggnet16 model, run the the file VGGNet16.py
 
 Jupyter notebook
 ---------------------------------------------
-There is a jupyter notebook which is a combination of all the python scripts used for both models
+There is a jupyter notebook which is a combination of all the python scripts used for both models.
+ResNet9 comments out argparse block for the successfull jupyter notebook compilation
