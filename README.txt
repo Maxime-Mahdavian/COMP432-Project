@@ -35,7 +35,7 @@ optional arguments:
 
 VGGNet16
 ---------------------------------------------
-To run vggnet16 model, run the the file vgg.py
+To run vggnet16 model, run the the file VGGNet16.py
 
 Jupyter notebook
 ---------------------------------------------
