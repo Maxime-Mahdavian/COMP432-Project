@@ -50,6 +50,7 @@ def show_batch(dataloader):
         break
 
 # Plot the graph for the loss and accuracy at the end of a run
+# Input: History of model's training in dictionary form and string for the title of the file
 def plot_graph(history, title):
     plt.subplot(1, 2, 1)
     acc = [x['acc'] for x in history]
@@ -108,7 +109,7 @@ train_dataloader = device_function.DeviceDataloader(train_dataloader, device)
 test_dataloader = device_function.DeviceDataloader(test_dataloader, device)
 validation_dataloader = device_function.DeviceDataloader(validation_dataloader, device)
 #
-for i in range(1):
+for i in range(3):
     filename = "test" + str(i) + ".png"
 
     # Create the model ConvNetwork and put it on the device

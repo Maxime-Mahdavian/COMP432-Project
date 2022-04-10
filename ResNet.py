@@ -4,6 +4,8 @@ import timeit
 
 
 # Get the accuracy
+# Input: tensor representing the output and truth labels associated with the output
+# Output: tensory of the accuracy
 def accuracy(output, label):
     _, pred = torch.max(output, dim=1)
     return torch.tensor(torch.sum(pred == label).item() / len(pred))
@@ -12,14 +14,19 @@ def accuracy(output, label):
 # Base function for the ImageClassification. It handles all the steps throughout running the model
 # It allows more flexibility for recording data through the training of the model
 class ImageClassification(nn.Module):
-    # Feed forward
+    # Feed forward method
+    # Input: Batch from the dataloader
+    # Output: Loss calculated with cross entropy
     def training_step(self, batch):
+
         image, label = batch
         output = self(image)
         loss = torch.nn.functional.cross_entropy(output, label)
         return loss
 
-    # Feed forward during training
+    # Feed forward during testing
+    # Input: Batch from a dataloader
+    # Output: Dictionary entry of the loss and accuracy
     def testing_step(self, batch):
         image, label = batch
         output = self(image)
@@ -29,6 +36,8 @@ class ImageClassification(nn.Module):
 
     # Collects several stats necessary to see how the model is performaning during training, namely
     # accuracy and loss
+    # Input: Tensor representing the output of the model
+    # Output: Dictionary entry of the testing loss and testing accuracy
     def testing_end(self, output):
         batch_loss = [x['loss'] for x in output]
         epoch_loss = torch.stack(batch_loss).mean()
@@ -37,6 +46,7 @@ class ImageClassification(nn.Module):
         return {'loss': epoch_loss.item(), 'acc': epoch_accuracy.item()}
 
     # Displays the stats at the end of the epoch
+    # Input: epoch number, results of the epoch, time it took for the epoch and filename for logging
     def epoch_end(self, epoch, result, time, file):
         print(f"Epoch [{epoch}], last_lr: {result['lrs'][-1]:.5f}, train_loss: {result['test_loss']:.4f}, "
               f"test_loss: {result['loss']:.4f}, acc: {result['acc']:.4f}, Epoch_time: {time}")
@@ -69,6 +79,9 @@ class ResNet(ImageClassification):
 
 
 # Create a layer of the convolutional layer
+# Input: number of in channels, number of out channels, activation function, true if pooling, normalize or
+# initialization are enabled, false otherwise
+# Output: Sequential object representing a convolutional layer of the model
 def create_conv_layer(in_channels, out_channels, activation='relu', pool=False, normalize=True, init=True):
     layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1)]
 
@@ -91,6 +104,8 @@ def create_conv_layer(in_channels, out_channels, activation='relu', pool=False, 
 
 
 # Test function
+# Input: model and dataloader
+# Output: Dictionary entry of the loss and accuracy
 @torch.no_grad()
 def evaluate(model, loader):
     model.eval()
@@ -99,12 +114,17 @@ def evaluate(model, loader):
 
 
 # Returns the learning rate
+# Input: Pytorch optimizer object
+# Output: Float for the learning rate
 def get_learning_rate(optimizer):
     for param in optimizer.param_groups:
         return param['lr']
 
 
 # Main training function
+# Input: Max number of epochs, learning rate, model, train and test dataloaders, weight_decay,
+# max accuracy where the model will stop training, float for weight decay, optimizer function, filename for logging
+# Output: Dictionary of history of model's performance
 def cycle(epochs, max_lr, model, trn_dataloader, tst_dataloader, weight_decay=0, max_acc=65, grad_clip=None,
           opt_func=torch.optim.SGD, file=None):
     torch.cuda.empty_cache()

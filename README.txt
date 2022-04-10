@@ -35,4 +35,8 @@ optional arguments:
 
 VGGNet16
 ---------------------------------------------
-To run
+To run vggnet16 model, run the the file vgg.py
+
+Jupyter notebook
+---------------------------------------------
+There is a jupyter notebook which is a combination of all the python scripts used for both models

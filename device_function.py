@@ -1,6 +1,6 @@
 import torch
 
-# For using a GPU if available
+# For using a GPU if available, finds an available device
 def get_device():
     if torch.cuda.is_available():
         return torch.device('cuda')
@@ -8,6 +8,7 @@ def get_device():
         return torch.device('cpu')
 
 
+# Puts some data into the device, particurlarly useful and required if using a GPU
 def to_device(data, device):
     if isinstance(data, (list, tuple)):
         return [to_device(x, device) for x in data]
